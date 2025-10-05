@@ -1,0 +1,26 @@
+#!/bin/bash
+# Copyright (C) 2000 ZeroDream
+
+# --------------------------------------------------
+
+cd "$WRT_MainPath/"
+
+# --------------------------------------------------
+
+# ! 由 ZeroDream 私有
+
+[[ -z "$ZeroDream_Secret" ]] && exit 0
+
+# 创建配置文件
+touch "$CI_ConfigPath/ParsedConfig"
+
+# 解析配置
+"$ZD_AppPath/ParseZeroWrtConfig-linux-amd64" \
+  --coreConfigPath "$CI_ConfigPath/CoreConfig" \
+  --virtualConfigPath "$CI_ConfigPath/VirtualConfig" \
+  >"$CI_ConfigPath/ParsedConfig"
+(($? != 0)) && [[ "$ZD_Owner" == "$CI_Owner" ]] && exit 2
+
+# --------------------------------------------------
+
+exit 0
