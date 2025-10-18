@@ -6,7 +6,7 @@ ZeroWrt 固件，由 ZeroDream 基于 VIKINGYFY 的 ImmortalWrt 源码开发
 
 ZeroWrt 固件的初始软件包非常精简，通过自研的虚拟算法，内置了大量 Kernel Modules
 
-可以安装绝大部分的官方 Package，极少出现内核模块缺失的情况
+能够安装绝大部分的官方 Package，极少出现内核模块缺失的情况
 
 ### Fork 注意事项
 
