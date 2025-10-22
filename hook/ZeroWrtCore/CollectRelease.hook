@@ -32,7 +32,7 @@ find "$WRT_MainPath/bin/targets/" -type f \
   -exec mv -f {} "$ZD_ReleaseUploadPath/" \;
 
 # ReleaseBody
-cat > "$WRT_ReleaseBodyPath" <<- EOF
+cat > "$CI_ReleaseBodyPath" <<- EOF
 ZeroWrt 固件，由 ZeroDream 基于 VIKINGYFY 的 ImmortalWrt 源码进行开发
 
 源码: $WRT_REPO
