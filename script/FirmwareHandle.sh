@@ -70,13 +70,13 @@ if [ -f "$COREMARK_FILE" ]; then
 fi
 
 # 删除 SB 内核回溯移植补丁
-cd "$pkgPath"
-SB_PATCH="../feeds/packages/net/sing-box/patches"
-if [ -d "$SB_PATCH" ]; then
-	rm -rf $SB_PATCH
-	echo "Fixed: sing-box patches"
-	echo ''
-fi
+# cd "$pkgPath"
+# SB_PATCH="../feeds/packages/net/sing-box/patches"
+# if [ -d "$SB_PATCH" ]; then
+# 	rm -rf $SB_PATCH
+# 	echo "Fixed: sing-box patches"
+# 	echo ''
+# fi
 
 # --------------------------------------------------
 
