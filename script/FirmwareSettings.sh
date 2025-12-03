@@ -60,12 +60,11 @@ fi
 
 # 修改设备内核大小
 imageFile="./target/linux/qualcommax/image/ipq60xx.mk"
-if [[ -f "$imageFile" ]]; then
+if [[ -f "$imageFile" ]] && [[ "${WRT_CONFIG,,}" == *"jdcx"* ]]; then
   sed -i "/^define Device\/jdcloud_re-ss-01/,/^endef/ { /KERNEL_SIZE := 6144k/s//KERNEL_SIZE := 12288k/ }" "$imageFile"
   sed -i "/^define Device\/jdcloud_re-cs-02/,/^endef/ { /KERNEL_SIZE := 6144k/s//KERNEL_SIZE := 12288k/ }" "$imageFile"
   sed -i "/^define Device\/jdcloud_re-cs-07/,/^endef/ { /KERNEL_SIZE := 6144k/s//KERNEL_SIZE := 12288k/ }" "$imageFile"
   sed -i "/^define Device\/redmi_ax5-jdcloud/,/^endef/ { /KERNEL_SIZE := 6144k/s//KERNEL_SIZE := 12288k/ }" "$imageFile"
-  sed -i "/^define Device\/linksys_mr/,/^endef/ { /KERNEL_SIZE := 8192k/s//KERNEL_SIZE := 12288k/ }" "$imageFile"
   echo 'Successful: modify kernel size'
 	echo ''
 fi

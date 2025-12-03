@@ -12,7 +12,9 @@ ZeroWrt 固件的初始软件包非常精简，通过自研的虚拟算法，内
 
 固件每天早上 4 点自动编译
 
-支持: QUALCOMMAX, MEDIATEK, ROCKCHIP, X86
+支持的系列: QUALCOMMAX, MEDIATEK, ROCKCHIP, X86
+
+修改内核大小 (12M): jdcloud_re-ss-01, jdcloud_re-cs-02, jdcloud_re-cs-07, redmi_ax5-jdcloud
 
 ### 软件包下载
 

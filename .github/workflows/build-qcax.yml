@@ -1,5 +1,5 @@
 # CI 项目
-name: BuildQCAX
+name: build-qcax
 
 # CI 权限
 permissions: write-all
@@ -38,7 +38,7 @@ jobs:
         BRANCH: [main]
 
     # 调用公用编译核心
-    uses: ./.github/workflows/ZeroWrtCore.yml
+    uses: ./.github/workflows/zerowrt-core.yml
     secrets: inherit
     with:
       # 测试模式
@@ -67,7 +67,7 @@ jobs:
       WRT_PW: 无
 
   clean:
-    name: CleanRelease
+    name: clean-release
     if: ${{inputs.ONLY_CONFIG}} == 'false'
     needs: [build]
-    uses: ./.github/workflows/CleanRelease.yml
+    uses: ./.github/workflows/clean-release.yml

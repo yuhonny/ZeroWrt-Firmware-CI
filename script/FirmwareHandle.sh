@@ -110,7 +110,13 @@ cd "$pkgPath"
 if [ -d *"luci-theme-argon"* ]; then
 	cd ./luci-theme-argon/
 	sed -i "/font-weight:/ { /important/! { /\/\*/! s/:.*/: var(--font-weight);/ } }" $(find ./luci-theme-argon -type f -iname "*.css")
-	sed -i "s/primary '.*'/primary '#5e72e4'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" ./luci-app-argon-config/root/etc/config/argon
+	sed -i -e "s/primary '.*'/primary '#6c8eb0'/" \
+				 -e "s/dark_primary '.*'/dark_primary '#6c8eb0'/" \
+				 -e "s/'0.2'/'0.5'/" \
+				 -e "s/online_wallpaper '.*'/online_wallpaper 'bing'/" \
+				 -e "s/'600'/'normal'/" \
+				 -e "s/mode '.*'/mode 'normal'/" \
+				 ./luci-app-argon-config/root/etc/config/argon
 	echo 'Fixed: theme-argon'
 	echo ''
 fi
