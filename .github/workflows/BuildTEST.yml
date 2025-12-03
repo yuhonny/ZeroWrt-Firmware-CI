@@ -1,17 +1,39 @@
 # CI 项目
-name: CompileQcax
+name: BuildTEST
 
 # CI 权限
 permissions: write-all
 
 # CI 计划
 on:
-  # 自动运行: 每天早上 4 点
-  schedule:
-    - cron: 0 20 * * *
   # 手动运行
   workflow_dispatch:
     inputs:
+      CONFIG:
+        description: 'CONFIG'
+        required: true
+        type: choice
+        default: 'IPQ60XX-WiFi_NO'
+        options:
+          - IPQ50XX-WiFi_NO
+          - IPQ50XX-WiFi_YES
+          - IPQ60XX-WiFi_NO
+          - IPQ60XX-WiFi_YES
+          - IPQ807X-WiFi_NO
+          - IPQ807X-WiFi_YES
+          - MEDIATEK
+          - ROCKCHIP
+          - X86
+      SOURCE:
+        description: 'SOURCE'
+        required: true
+        type: string
+        default: 'VIKINGYFY/immortalwrt'
+      BRANCH:
+        description: 'BRANCH'
+        required: true
+        type: string
+        default: 'main'
       ONLY_CONFIG:
         description: '是否仅生成配置'
         required: true
@@ -20,32 +42,24 @@ on:
 
 # CI 任务
 jobs:
-  compile:
-    name: ${{matrix.CONFIG}}
-    # 矩阵
-    strategy:
-      fail-fast: false
-      matrix:
-        CONFIG: [IPQ60XX-WiFi_NO, IPQ60XX-WiFi_YES, IPQ807X-WiFi_NO, IPQ807X-WiFi_YES]
-        SOURCE: [VIKINGYFY/immortalwrt]
-        BRANCH: [main]
-
+  build:
+    name: ${{inputs.CONFIG}}
     # 调用公用编译核心
     uses: ./.github/workflows/ZeroWrtCore.yml
     secrets: inherit
     with:
       # 测试模式
-      WRT_TEST: false
+      WRT_TEST: true
       # 是否仅生成配置
       WRT_ONLY_CONFIG: ${{inputs.ONLY_CONFIG || false}} # 为自动编译设置默认值
       # 编译配置
-      WRT_CONFIG: ${{matrix.CONFIG}}
+      WRT_CONFIG: ${{inputs.CONFIG}}
       # 源码名称
-      WRT_SOURCE: ${{matrix.SOURCE}}
+      WRT_SOURCE: ${{inputs.SOURCE}}
       # 源码分支
-      WRT_BRANCH: ${{matrix.BRANCH}}
+      WRT_BRANCH: ${{inputs.BRANCH}}
       # 源码链接
-      WRT_REPO: https://github.com/${{matrix.SOURCE}}.git
+      WRT_REPO: https://github.com/${{inputs.SOURCE}}.git
       # 默认主题
       WRT_THEME: argon
       # 默认主机名
@@ -58,9 +72,3 @@ jobs:
       WRT_IP: 192.168.10.1
       # 默认密码，仅供提示，修改无效
       WRT_PW: 无
-
-  clean:
-    name: CleanRelease
-    if: ${{inputs.ONLY_CONFIG}} == 'false'
-    needs: [compile]
-    uses: ./.github/workflows/CleanRelease.yml
