@@ -27,13 +27,8 @@ jobs:
       fail-fast: false
       matrix:
         CONFIG: [
-          IPQ50XX-WiFi_NO,
-          IPQ50XX-WiFi_YES,
           IPQ60XX-WiFi_NO,
-          IPQ60XX-WiFi_YES,
-          IPQ807X-WiFi_NO,
-          IPQ807X-WiFi_YES,
-        ]
+          ]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [main]
 
@@ -58,11 +53,11 @@ jobs:
       # 默认主机名
       WRT_HOST: ZeroWrt
       # 默认 WiFi 名称
-      WRT_SSID: ZeroWrt
+      WRT_SSID: 1704home_2.4G_AP
       # 默认 WiFi 密码
-      WRT_WORD: 12345678
+      WRT_WORD: yuhongzy
       # 默认地址
-      WRT_IP: 192.168.10.1
+      WRT_IP: 10.10.1.1
       # 默认密码，仅供提示，修改无效
       WRT_PW: 无
 
