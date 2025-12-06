@@ -27,9 +27,8 @@ jobs:
       fail-fast: false
       matrix:
         CONFIG: [
-          JDCX-WiFi_NO,
-          JDCX-WiFi_YES,
-        ]
+          JDCX-WiFi_NO
+          ]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [main]
 
