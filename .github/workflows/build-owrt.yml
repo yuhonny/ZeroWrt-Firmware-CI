@@ -26,7 +26,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        CONFIG: [MEDIATEK]
+         CONFIG: [
+          MEDIATEK,
+          ROCKCHIP,
+         ]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [owrt]
 
