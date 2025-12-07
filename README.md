@@ -8,6 +8,14 @@ ZeroWrt 固件的初始软件包非常精简，通过自研的虚拟算法，内
 
 能够安装大部分的官方 Package，极少出现内核模块缺失的情况
 
+### 固件简要说明
+
+固件每天早上 4 点自动编译
+
+支持的系列: QUALCOMMAX, MEDIATEK, ROCKCHIP, X86
+
+修改内核大小 (12M): jdcloud_re-ss-01, jdcloud_re-cs-02, jdcloud_re-cs-07, redmi_ax5-jdcloud
+
 ### 软件包下载
 
 https://github.com/zero-dream/ZeroWrt-Package-CI

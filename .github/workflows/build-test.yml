@@ -1,5 +1,5 @@
 # CI 项目
-name: CompileTest
+name: build-test
 
 # CI 权限
 permissions: write-all
@@ -19,6 +19,9 @@ on:
           - IPQ60XX-WiFi_YES
           - IPQ807X-WiFi_NO
           - IPQ807X-WiFi_YES
+          - MEDIATEK
+          - ROCKCHIP
+          - X86
       SOURCE:
         description: 'SOURCE'
         required: true
@@ -37,10 +40,10 @@ on:
 
 # CI 任务
 jobs:
-  test:
+  build:
     name: ${{inputs.CONFIG}}
     # 调用公用编译核心
-    uses: ./.github/workflows/ZeroWrtCore.yml
+    uses: ./.github/workflows/zerowrt-core.yml
     secrets: inherit
     with:
       # 测试模式

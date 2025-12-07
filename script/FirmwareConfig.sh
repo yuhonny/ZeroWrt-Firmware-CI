@@ -45,7 +45,7 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	echo "CONFIG_PACKAGE_luci-app-sqm=y" >>"$WRT_ConfigPath"
 	echo "CONFIG_PACKAGE_sqm-scripts-nss=y" >>"$WRT_ConfigPath"
 	# 设置 NSS 版本
-	echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=n" >>"$WRT_ConfigPath"
+	echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=n" >> "$WRT_ConfigPath"
 	echo "CONFIG_NSS_FIRMWARE_VERSION_12_5=y" >>"$WRT_ConfigPath"
   # 添加配置成功
   echo 'Successful: addQualcommaxConfig'
