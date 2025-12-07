@@ -84,15 +84,15 @@ jobs:
       - name: CheckoutProject
         uses: actions/checkout@main
 
-      - name: InitZeroDreamCI
+      - name: InitWorkflow
         run: |
-          ZeroDreamCiPath="$RUNNER_TEMP/ZeroDreamCI-$(uuidgen | tr -d '-')"
-          git clone --depth=1 https://github.com/zero-dream/ZeroDream-CI.git "$ZeroDreamCiPath/"
-          chmod +x "$ZeroDreamCiPath/zerodream/main/init.sh"
-          source "$ZeroDreamCiPath/zerodream/main/init.sh"
+          WorkflowPath="$RUNNER_TEMP/Workflow-$(uuidgen | tr -d '-')"
+          git clone --depth=1 https://github.com/zero-dream/workflow.git "$WorkflowPath/"
+          chmod +x "$WorkflowPath/zerodream/main/init.sh"
+          source "$WorkflowPath/zerodream/main/init.sh"
           # --------------------------------------------------
           source "$ZD_ScriptLibPath/hook.sh"
-          hook 'ZeroWrtCore/InitZeroDreamCI'
+          hook 'ZeroWrtCore/InitWorkflow'
 
       - name: InitCompileEnv
         env:
