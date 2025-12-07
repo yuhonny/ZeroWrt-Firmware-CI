@@ -5,6 +5,6 @@
 
 # 示例:
 # CONFIG_PACKAGE_luci-app-*=y
-CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-homeproxy=y
 CONFIG_PACKAGE_luci-app-upnp=y
 # --------------------------------------------------
