@@ -27,11 +27,8 @@ jobs:
       fail-fast: false
       matrix:
         CONFIG: [
-          IPQ60XX-WiFi_NO,
-          IPQ60XX-WiFi_YES,
-          IPQ807X-WiFi_NO,
-          IPQ807X-WiFi_YES,
-        ]
+          IPQ60XX-WiFi_NO, 
+          ]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [main]
 
@@ -54,13 +51,13 @@ jobs:
       # 默认主题
       WRT_THEME: argon
       # 默认主机名
-      WRT_HOST: ZeroWrt
+      WRT_HOST: JDCloud
       # 默认 WiFi 名称
       WRT_SSID: ZeroWrt
       # 默认 WiFi 密码
       WRT_WORD: 12345678
       # 默认地址
-      WRT_IP: 192.168.10.1
+      WRT_IP: 10.10.1.1
       # 默认密码，仅供提示，修改无效
       WRT_PW: 无
 
