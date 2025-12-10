@@ -8,7 +8,7 @@ permissions: write-all
 on:
   # 自动运行: 每天早上 4 点
   schedule:
-    - cron: 0 20 * * *
+    - cron: 0 2 * * *
   # 手动运行
   workflow_dispatch:
     inputs:
@@ -28,7 +28,6 @@ jobs:
       matrix:
         CONFIG: [
           MEDIATEK,
-          ROCKCHIP,
           ]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [owrt]
