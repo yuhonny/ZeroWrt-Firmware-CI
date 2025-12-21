@@ -4,8 +4,8 @@ name: build-qcax
 # CI 权限
 permissions: write-all
 
-# CI 计划
-#on:
+ CI 计划
+on:
   # 自动运行: 每天早上 4 点
   schedule:
     - cron: 0 10 * * *
