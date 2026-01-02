@@ -28,6 +28,7 @@ jobs:
       matrix:
         CONFIG: [
           MEDIATEK,
+          X86,
           ]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [owrt]
