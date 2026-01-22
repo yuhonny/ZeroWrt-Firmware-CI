@@ -8,7 +8,7 @@ permissions: write-all
 on:
   # 自动运行: 每天早上 4 点
   schedule:
-    - cron: 0 20 * * *
+    - cron: 0 15 * * *
   # 手动运行
   workflow_dispatch:
     inputs:
@@ -60,7 +60,7 @@ jobs:
       # 默认 WiFi 密码
       WRT_WORD: 12345678
       # 默认地址
-      WRT_IP: 192.168.10.1
+      WRT_IP: 10.10.1.1
       # 默认密码，仅供提示，修改无效
       WRT_PW: 无
 
